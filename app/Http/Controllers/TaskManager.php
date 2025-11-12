@@ -39,7 +39,7 @@ class TaskManager extends Controller
 
     public function updateStatus($id)
     {
-      if(Tasks::where('id', $id)->update(['status' => 'done'])) {
+      if(Tasks::where('id', $id)->update(['status' => 'Done'])) {
         return redirect(route('home'))->with('success', 'Task Completed');
     }else{
         return redirect(route('home'))->with('error', 'Failed to update task status, try again');
@@ -50,16 +50,20 @@ class TaskManager extends Controller
     {
       $task = Tasks::find($id);
 
+    // 🧩 1️⃣ Check if task exists
     if (!$task) {
         return redirect()->back()->with('error', 'Task not found.');
     }
 
-    // ✅ Check status condition before deleting
-    if ($task->status === 'pending') {
+    // 🧩 2️⃣ Handle null or empty status (treat as Pending)
+    $status = strtolower($task->status ?? 'pending');
+
+    // 🧩 3️⃣ Prevent deletion if task is pending
+    if ($status !== 'done' && $status !== 'completed') {
         return redirect()->back()->with('error', 'Pending tasks cannot be deleted.');
     }
 
-    // ✅ Allow delete only if completed
+    // 🧩 4️⃣ Delete the task
     $task->delete();
 
     return redirect()->back()->with('success', 'Task deleted successfully.');
