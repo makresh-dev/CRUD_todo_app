@@ -18,6 +18,9 @@ Below is a high-level diagram of the application structure:
 
 ![Laravel Application Architecture](structure.png)
 
+
+## CRUD Structure
+
 ![Laravel CRUD Data Flow](CRUD.png)
 
 ## Setup (brief)  
