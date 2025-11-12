@@ -26,11 +26,17 @@
                             <path d="M13 7h-6l4 5l-4 5h6l4 -5z" />
                         </svg>
                     <p class="pb-3 mb-0 small lh-sm border-bottom">
-                        <strong class="d-block text-gray-dark">{{ $tasks->title }}</strong>
-                        {{ $tasks->description }} <br>
-                        Deadline: {{ $tasks->deadline }}
+                        <strong class="d-block text-gray-dark">{{ $tasks->title }} | {{ $tasks->deadline }}</strong>
+                        Status: {{ $tasks->status ?? 'pending' }} <br>
+                        {{ $tasks->description }}
                     </p>
-                    <button class="btn btn-sm btn-outline-secondary ms-auto" style="height: 30px; align-self: center;">Remove Task</button>
+                    <a href="{{ route('task.update.status', ['id' => $tasks->id]) }}" class="btn btn-success ms-auto" style="height: 40px; align-self: center;">Mark as Done</a>
+                    @if($tasks->status === 'done')
+                    <a href="{{ route('task.delete', ['id' => $tasks->id]) }}" class="btn btn-danger ms-2" style="height: 40px; align-self: center;">Delete Task
+                    </a>
+                    @else
+                    <a class="btn btn-secondary ms-3" style="height: 40px; align-self: center;" disabled>Pending Task</a>
+                    @endif
             </div>
             @endforeach
         </div>

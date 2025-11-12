@@ -18,4 +18,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('task/add', [TaskManager::class, 'addTask'])->name('task.add');
 
     Route::post('task/add', [TaskManager::class, 'addTaskPost'])->name('task.add.post');
+
+    Route::get('task/status/{id}', [TaskManager::class, 'updateStatus'])->name('task.update.status');
+
+    Route::get('task/delete/{id}', [TaskManager::class, 'deleteTask'])->name('task.delete');
 });

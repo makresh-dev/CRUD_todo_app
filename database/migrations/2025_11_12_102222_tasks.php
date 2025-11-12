@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("title");
             $table->text("description");
             $table->date("deadline");
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("");
+        Schema::dropIfExists("tasks");
     }
 };
