@@ -21,7 +21,7 @@ Below is a high-level diagram of the application structure:
 
 ## CRUD Structure
 
-![Laravel CRUD Data Flow](CRUD.png)
+![Laravel CRUD Data Flow](laravel_CRUD.png)
 
 ## Setup (brief)  
 1. Clone the repository  
