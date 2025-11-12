@@ -8,23 +8,33 @@
             <div class="mb-3">
                 <input type="text" name="title" class="form-control">
             </div>
-            <div class="mb-3">
+            @error('title')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <div class="mb-3 mt-3">
                 <input type="datetime-local" class="form-control" name="deadline">
             </div>
-            <div class="mb-3">
+            @error('deadline')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <div class="mb-3 mt-3">
                 <textarea name="description" class="form-control" rows="3"></textarea>
             </div>
+            @error('description')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
             @if(session()->has('success'))
-           <div class="alert alert-success" style="width: 20rem">
+           <div class="alert alert-success" style="width: 20rem; margin-top: 10px;">
                {{ session()->get('success') }}
            </div>
        @endif
        @if(session('error'))
-           <div class="alert alert-danger" style="width: 20rem">
+           <div class="alert alert-danger" style="width: 20rem;">
                {{ session('error') }}
            </div>
        @endif
-            <button type="submit" class="btn btn-success">Add Task</button>
+       <br>
+            <button type="submit" class="btn btn-success mx-2">Add Task</button>
         </form>
     </div>
     </div>

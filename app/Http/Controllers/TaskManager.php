@@ -9,8 +9,13 @@ class TaskManager extends Controller
 {
     public function ListTasks()
     {
-        $tasks = Tasks::all();
-        return view("welcome" , compact("tasks"));
+       $tasks = Tasks::whereIn('status', ['pending', 'done'])
+              ->orWhereNull('status')
+              ->orderBy('created_at', 'desc')
+              ->paginate(4);
+
+        return view("welcome", compact("tasks"));
+
     }
 
     public function addTask()

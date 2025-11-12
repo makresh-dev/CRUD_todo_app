@@ -16,6 +16,7 @@
                 </div>
             @endif
             <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <p>{{ $tasks->links() }}</p>
                 <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
                 @foreach ($tasks as $tasks)
                 <div class="d-flex text-body-secondary pt-3"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
