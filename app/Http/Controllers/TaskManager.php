@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tasks;
 use Illuminate\Http\Request;
 
 class TaskManager extends Controller
 {
+    public function ListTasks()
+    {
+        $tasks = Tasks::all();
+        return view("welcome" , compact("tasks"));
+    }
+
     public function addTask()
     {
         return view('tasks.addTask');
@@ -16,12 +23,17 @@ class TaskManager extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'deadline' => 'required|date'
+            'deadline' => 'required'
         ]);
+        $task = new Tasks();
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        $task->deadline = $request->input('deadline');
+        $task->save();
+        if($task->save()) {
+            return redirect(route('home'))->with('success', 'Task added successfully');
+        }
+        return redirect(route('task.add'))->with('error', 'Failed to add task');
 
-        // Here you would typically save the task to the database
-        // For demonstration, we'll just return a success message
-
-        return redirect()->route('tasks.add')->with('success', 'Task added successfully!');
     }
 }

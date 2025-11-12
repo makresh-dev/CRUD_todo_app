@@ -18,7 +18,7 @@
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                        <a class="btn btn-outline-success" href="{{ route('tasks.add') }}">Add Tasks</a>
+                        <a class="btn btn-outline-success" href="{{ route('task.add') }}">Add Tasks</a>
                 </div>
             </div>
         </nav>
