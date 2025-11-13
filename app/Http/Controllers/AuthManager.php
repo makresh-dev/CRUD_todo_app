@@ -13,7 +13,7 @@ class AuthManager extends Controller
         return view('auth.login');
     }
 
-    public function loginPost(Request $request) 
+    public function loginPost(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -25,6 +25,11 @@ class AuthManager extends Controller
             return redirect()->intended(route('home'));
         }
             return redirect(route('login'))->with('error', 'Invalid credentials provided');
+    }
+
+    public function logout() {
+        auth()->logout();
+        return redirect(route('login'))->with('success', 'Logged out successfully');
     }
 
     public function register() {

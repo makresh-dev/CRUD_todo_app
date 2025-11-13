@@ -8,6 +8,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li><a class="nav-link active" aria-current="page" href="{{ route('logout') }}">Logout</a></li>
                     </ul>
                         <a class="btn btn-outline-success" href="{{ route('task.add') }}">Add Tasks</a>
                 </div>

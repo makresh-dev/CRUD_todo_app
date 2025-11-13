@@ -29,30 +29,30 @@ body {
 </style>
 @endsection
 @section("content")
-<main class="form-signin  m-auto"> 
-    <form method="POST" action="{{ route('login.post') }}"> <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> 
+<main class="form-signin  m-auto">
+    <form method="POST" action="{{ route('login.post') }}"> <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
         @csrf
-        <h1 class="h3 mb-3 fw-normal">Sign In</h1> 
-        <div class="form-floating" style="margin-bottom: 10px"> 
-            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="width: 20rem"> 
-            <label for="floatingInput">Email address</label> 
+        <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+        <div class="form-floating" style="margin-bottom: 10px">
+            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="width: 20rem">
+            <label for="floatingInput">Email address</label>
             @error('email')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
-        </div> 
-        <div class="form-floating" style="margin-bottom: 10px"> 
-            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" style="width: 20rem"> 
-            <label for="floatingPassword">Password</label> 
+        </div>
+        <div class="form-floating" style="margin-bottom: 10px">
+            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" style="width: 20rem">
+            <label for="floatingPassword">Password</label>
             @error('password')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
-        </div> 
-        <div class="form-check text-start my-3"> 
-            <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault"> 
+        </div>
+        <div class="form-check text-start my-3">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
             <label class="form-check-label" for="checkDefault">
                 Remember me
-            </label> 
-        </div> 
+            </label>
+        </div>
         @if(session()->has('success'))
            <div class="alert alert-success" style="width: 20rem">
                {{ session()->get('success') }}
@@ -64,6 +64,9 @@ body {
            </div>
        @endif
         <button class="btn btn-primary py-2" style="width: 20rem"  type="submit">Sign in</button>
-    </form> 
+        <div class="my-2">
+            <a>Don't have an account? Register</a> <a href="{{ route('register') }}">here</a>
+        </div>
+    </form>
 </main>
 @endsection
