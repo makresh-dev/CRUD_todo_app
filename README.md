@@ -42,3 +42,4 @@ Feel free to open issues or submit pull requests. Please follow PSR-12 coding st
 ## License  
 This project is licensed under the MIT License — see the `LICENSE` file for details.
 
+[![PHP Version](https://github.com/makresh-dev/data_pipeline-ETL-/actions/workflows/CRUD_todo_app)] ![Laravel Version](https://img.shields.io/badge/python-3.10-blue) ![Last Commit](https://img.shields.io/github/last-commit/makresh-dev/CRUD_todo_app) ![License](https://img.shields.io/badge/license-MIT-green) ![Issues](https://img.shields.io/github/issues/makresh-dev/CRUD_todo_app)
